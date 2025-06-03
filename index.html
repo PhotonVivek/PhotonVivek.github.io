@@ -17,7 +17,7 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: 
-        linear-gradient(rgba(15, 28, 63, 0.85), rgba(0, 31, 77, 0.85)),
+        linear-gradient(rgba(15, 28, 63, 0.85), rgba(0, 31, 77, 0.90)),
         url('Background.png') no-repeat center center fixed;
       background-size: cover;
       color: #e0e6f1;
@@ -88,83 +88,54 @@
       letter-spacing: 0.05em;
     }
 
-    /* Main container */
+    /* Merged profile content container */
     main {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      max-width: 1100px;
-      margin: 3rem auto 4rem auto;
-      gap: 3rem;
       padding: 0 1rem;
       flex-grow: 1;
     }
-
-    /* Left panel */
-    .left-panel {
-      flex: 1 1 350px;
+    .profile-content {
+      display: flex;
       background: rgba(255, 255, 255, 0.07);
       border-radius: 20px;
       box-shadow:
         0 8px 32px 0 rgba(0, 0, 0, 0.2),
         inset 0 0 60px rgba(255, 255, 255, 0.1);
-      padding: 2.5rem 2rem;
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 3rem 0 4rem 0;
+      gap: 3rem;
+      color: #dbe9ff;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      color: #dbe9ff;
-      transition: box-shadow 0.4s ease;
+      width: 100%;
+      box-sizing: border-box;
     }
-    .left-panel:hover {
-      box-shadow:
-        0 15px 40px 0 rgba(0, 59, 113, 0.6),
-        inset 0 0 80px rgba(255, 255, 255, 0.15);
-    }
-    .left-panel img {
+
+    .profile-pic {
+      flex-shrink: 0;
       width: 180px;
       height: 180px;
       border-radius: 50%;
       border: 5px solid #56ccf2;
       object-fit: cover;
-      margin-bottom: 1.5rem;
       box-shadow: 0 0 20px #56ccf2aa;
       transition: transform 0.4s ease;
     }
-    .left-panel img:hover {
+    .profile-pic:hover {
       transform: scale(1.05);
       box-shadow: 0 0 30px #a1d6ffdd;
     }
-    .left-panel p {
-      font-size: 1.15rem;
-      font-style: italic;
-      margin-top: 1rem;
-      max-width: 280px;
-      line-height: 1.4;
-    }
 
-    /* Right panel */
-    .right-panel {
-      flex: 2 1 600px;
-      background: rgba(255, 255, 255, 0.07);
-      border-radius: 20px;
-      padding: 3rem 3rem 3rem 4rem;
-      color: #e0e6f1;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-      font-size: 1.15rem;
+    .content-text {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       gap: 2.5rem;
+      font-size: 1.15rem;
       line-height: 1.5;
-    }
-    .right-panel section:last-child {
-      margin-top: auto;
-    }
-    .right-panel strong {
-      color: #a1d6ff;
+      color: #e0e6f1;
     }
 
     /* CV Download button */
@@ -207,26 +178,26 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      main {
+      .profile-content {
         flex-direction: column;
-        padding: 0 1.5rem;
+        padding: 2rem 1.5rem;
       }
-      .right-panel {
-        padding-left: 2rem;
-        padding-right: 2rem;
-      }
-      .left-panel {
-        width: 100%;
-        max-width: 360px;
-        margin: 0 auto;
+      .profile-pic {
+        margin: 0 auto 2rem auto;
+        width: 160px;
+        height: 160px;
       }
     }
     @media (max-width: 400px) {
       header h1 {
         font-size: 2.2rem;
       }
-      .right-panel, .left-panel {
-        padding: 2rem 1.5rem;
+      .content-text {
+        font-size: 1rem;
+      }
+      .cv-button {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
       }
     }
   </style>
@@ -238,48 +209,46 @@
   </header>
 
   <main>
-    <div class="left-panel" aria-label="Profile photo and tagline">
-      <img src="Vivek02.jpg" alt="Portrait of Vivekanand Tiwari" />
-      <p>Exploring the quantum world with light, one photon at a time.</p>
-    </div>
+    <div class="profile-content" aria-label="Profile and detailed information">
+      <img src="Vivek02.jpg" alt="Portrait of Vivekanand Tiwari" class="profile-pic" />
+      <div class="content-text">
+        <section aria-labelledby="about-me-heading">
+          <h2 id="about-me-heading">About Me</h2>
+          <p>
+            I am a Senior Research Associate at the University of Bristol, United Kingdom.
+            My research primarily focuses on
+            <strong>Optically active defects in semiconductors</strong> and their
+            applications in a variety of quantum technologies, particularly
+            <strong>Quantum sensing</strong>.
+          </p>
+        </section>
 
-    <div class="right-panel">
-      <section aria-labelledby="about-me-heading">
-        <h2 id="about-me-heading">About Me</h2>
-        <p>
-          I am a Senior Research Associate at the University of Bristol, United Kingdom.
-          My research primarily focuses on
-          <strong>Optically active defects in semiconductors</strong> and their
-          applications in a variety of quantum technologies, particularly
-          <strong>Quantum sensing</strong>.
-        </p>
-      </section>
+        <section aria-labelledby="research-interests-heading">
+          <h2 id="research-interests-heading">Research Interests</h2>
+          <ul>
+            <li>Optically Active Defects</li>
+            <li>Integrated Quantum Photonics</li>
+            <li>Quantum Sensing</li>
+            <li>Device Fabrication and Characterization</li>
+          </ul>
+        </section>
 
-      <section aria-labelledby="research-interests-heading">
-        <h2 id="research-interests-heading">Research Interests</h2>
-        <ul>
-          <li>Optically Active Defects</li>
-          <li>Integrated Quantum Photonics</li>
-          <li>Quantum Sensing</li>
-          <li>Device Fabrication and Characterization</li>
-        </ul>
-      </section>
+        <section aria-labelledby="find-me-online-heading">
+          <h2 id="find-me-online-heading">Find Me Online</h2>
+          <p>
+            📖 <a href="https://scholar.google.com/citations?user=jGa08lAAAAAJ&hl=fr" target="_blank" rel="noopener noreferrer">Google Scholar</a><br />
+            🔬 <a href="https://research-information.bris.ac.uk/en/persons/vivekanand-tiwari" target="_blank" rel="noopener noreferrer">University Profile</a>
+          </p>
+        </section>
 
-      <section aria-labelledby="find-me-online-heading">
-        <h2 id="find-me-online-heading">Find Me Online</h2>
-        <p>
-          📖 <a href="https://scholar.google.com/citations?user=jGa08lAAAAAJ&hl=fr" target="_blank" rel="noopener noreferrer">Google Scholar</a><br />
-          🔬 <a href="https://research-information.bris.ac.uk/en/persons/vivekanand-tiwari" target="_blank" rel="noopener noreferrer">University Profile</a>
-        </p>
-      </section>
-
-      <section aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Contact</h2>
-        <p>📧 <a href="mailto:vivekanand.tiwari@bristol.ac.uk">vivekanand.tiwari@bristol.ac.uk</a></p>
-        <a class="cv-button" href="VivekanandT_CV.pdf" target="_blank" download>
-          📄 Download My CV
-        </a>
-      </section>
+        <section aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Contact</h2>
+          <p>📧 <a href="mailto:vivekanand.tiwari@bristol.ac.uk">vivekanand.tiwari@bristol.ac.uk</a></p>
+          <a class="cv-button" href="VivekanandT_CV.pdf" target="_blank" download>
+            📄 Download My CV
+          </a>
+        </section>
+      </div>
     </div>
   </main>
 
