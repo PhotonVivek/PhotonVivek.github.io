@@ -1,212 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vivekanand Tiwari | Quantum Photonics Researcher</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #00b4ff;
-      --bg-gradient: linear-gradient(to right, #001f3f, #003b71);
-      --glass-bg: rgba(255, 255, 255, 0.1);
-      --glass-blur: blur(10px);
-    }
-
     body {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background: var(--bg-gradient);
-      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #001f3f, #003366);
+      color: #ffffff;
     }
-
     header {
-      background: transparent;
-      padding: 60px 20px 20px;
+      background: #001934;
       text-align: center;
+      padding: 50px 20px;
     }
-
     header h1 {
       margin: 0;
-      font-size: 2.8em;
-      font-family: 'Merriweather', serif;
+      font-size: 3em;
+      font-family: 'Georgia', serif;
     }
-
     header p {
-      font-size: 1.4em;
-      margin: 10px 0 0;
-      color: #a0d8ff;
+      font-size: 1.2em;
+      margin-top: 10px;
+      font-family: 'Segoe UI', sans-serif;
     }
-
     main {
       display: flex;
       flex-wrap: wrap;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 40px 20px;
-      gap: 30px;
     }
-
     .left-panel {
       flex: 1;
-      min-width: 300px;
+      min-width: 280px;
       max-width: 400px;
-      background: var(--glass-bg);
-      backdrop-filter: var(--glass-blur);
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.05) url("Background.png") no-repeat center center;
+      background-size: cover;
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
       padding: 30px;
       text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       position: relative;
-      overflow: hidden;
     }
-
-    .left-panel .profile-container {
+    .profile-container {
       position: relative;
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 20px;
+      display: inline-block;
     }
-
-    .left-panel .profile-background {
+    .profile-bg {
       position: absolute;
-      top: -10px;
-      left: -10px;
+      top: 50%;
+      left: 50%;
       width: 200px;
       height: 200px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(0,102,255,0.2) 0%, transparent 70%);
       border-radius: 50%;
-      background: radial-gradient(circle at center, var(--primary-color), transparent);
-      animation: spin 20s linear infinite;
       z-index: 0;
     }
-
     .left-panel img {
       width: 160px;
       height: 160px;
       border-radius: 50%;
-      border: 4px solid #fff;
+      border: 4px solid white;
       object-fit: cover;
+      transition: transform 0.3s ease;
       position: relative;
       z-index: 1;
-      transition: transform 0.3s ease;
     }
-
     .left-panel img:hover {
       transform: scale(1.05);
     }
-
     .left-panel p {
+      margin-top: 20px;
       font-size: 1.1em;
-      color: #d0f0ff;
     }
-
     .right-panel {
       flex: 2;
       min-width: 300px;
-      padding-left: 10px;
+      padding-left: 30px;
     }
-
     h2 {
-      font-family: 'Merriweather', serif;
-      border-bottom: 2px solid var(--primary-color);
+      font-family: 'Georgia', serif;
+      border-bottom: 2px solid #007acc;
       padding-bottom: 5px;
-      color: var(--primary-color);
+      margin-top: 0;
+      color: #00aaff;
     }
-
     ul {
       padding-left: 20px;
     }
-
     a {
-      color: var(--primary-color);
+      color: #66ccff;
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
     .cv-button {
       display: inline-block;
-      background-color: var(--primary-color);
+      background-color: #007acc;
       color: white;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border-radius: 8px;
-      margin-top: 20px;
+      margin-top: 10px;
       font-weight: bold;
+      text-decoration: none;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
-
     .cv-button:hover {
-      background-color: #008dcc;
+      background-color: #005f99;
       transform: scale(1.05);
     }
-
     footer {
-      background-color: #001d3d;
-      color: #88cfff;
+      background-color: #001934;
       text-align: center;
       padding: 20px;
-      margin-top: 60px;
+      margin-top: 40px;
     }
-
     @media (max-width: 800px) {
       main {
         flex-direction: column;
       }
-
       .right-panel {
         padding-left: 0;
+        margin-top: 20px;
       }
     }
-
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
+    .bloch-sphere {
+      width: 100%;
+      max-width: 300px;
+      margin: 30px auto 0;
+    }
+    .bloch-sphere circle {
+      stroke: #66ccff;
+      stroke-width: 2;
+      fill: none;
+    }
+    .bloch-sphere line {
+      stroke: #66ccff;
+      stroke-width: 1.5;
+    }
+    .bloch-sphere .qubit {
+      fill: #ffffff;
+      animation: qubitMotion 5s linear infinite;
+    }
+    @keyframes qubitMotion {
+      0%   { transform: translate(150px, 75px); }
+      25%  { transform: translate(180px, 50px); }
+      50%  { transform: translate(150px, 25px); }
+      75%  { transform: translate(120px, 50px); }
+      100% { transform: translate(150px, 75px); }
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>Vivekanand Tiwari</h1>
     <p>Senior Research Associate | University of Bristol, UK</p>
   </header>
-
   <main>
-    <div class="left-panel" aria-label="Profile Overview">
+    <div class="left-panel" aria-label="Profile Information">
       <div class="profile-container">
-        <div class="profile-background"></div>
+        <div class="profile-bg"></div>
         <img src="Vivek02.jpg" alt="Vivekanand Tiwari">
       </div>
       <p>Exploring the quantum world with light, one photon at a time.</p>
-      <!-- Fancy SVG Animation -->
-      <svg viewBox="0 0 200 200" width="100%" height="120" aria-hidden="true">
-        <circle cx="100" cy="100" r="50" stroke="#00b4ff" stroke-width="2" fill="none">
-          <animate attributeName="r" values="48;52;48" dur="3s" repeatCount="indefinite" />
-        </circle>
-        <line x1="100" y1="20" x2="100" y2="180" stroke="#00b4ff" stroke-width="2" stroke-dasharray="5,5">
-          <animate attributeName="y1" values="20;25;20" dur="3s" repeatCount="indefinite" />
-        </line>
-        <circle cx="100" cy="60" r="5" fill="#00b4ff">
-          <animate attributeName="cy" values="60;140;60" dur="3s" repeatCount="indefinite" />
-        </circle>
+
+      <!-- Bloch Sphere Animation -->
+      <svg class="bloch-sphere" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" aria-label="Spin Qubit Bloch Sphere Animation">
+        <circle cx="150" cy="75" r="60" />
+        <line x1="150" y1="15" x2="150" y2="135" /> <!-- vertical -->
+        <line x1="90" y1="75" x2="210" y2="75" /> <!-- horizontal -->
+        <circle class="qubit" cx="150" cy="75" r="6" />
       </svg>
     </div>
-
     <div class="right-panel">
-      <section aria-labelledby="about">
-        <h2 id="about">About Me</h2>
+      <section>
+        <h2>About Me</h2>
         <p>I am a Senior Research Associate at the University of Bristol, United Kingdom. My research primarily focuses on <strong>Optically active defects in semiconductors</strong> and their applications in a variety of quantum technologies, particularly <strong>Quantum sensing</strong>.</p>
       </section>
-      <section aria-labelledby="interests">
-        <h2 id="interests">Research Interests</h2>
+      <section>
+        <h2>Research Interests</h2>
         <ul>
           <li>Optically Active Defects</li>
           <li>Integrated Quantum Photonics</li>
@@ -214,24 +192,22 @@
           <li>Device Fabrication and Characterization</li>
         </ul>
       </section>
-      <section aria-labelledby="online">
-        <h2 id="online">Find Me Online</h2>
+      <section>
+        <h2>Find Me Online</h2>
         <p>
           📖 <a href="https://scholar.google.com/citations?user=jGa08lAAAAAJ&hl=fr" target="_blank">Google Scholar</a><br>
           🔬 <a href="https://research-information.bris.ac.uk/en/persons/vivekanand-tiwari" target="_blank">University Profile</a>
         </p>
       </section>
-      <section aria-labelledby="contact">
-        <h2 id="contact">Contact</h2>
+      <section>
+        <h2>Contact</h2>
         <p>📧 <a href="mailto:vivekanand.tiwari@bristol.ac.uk">vivekanand.tiwari@bristol.ac.uk</a></p>
         <a class="cv-button" href="VivekanandT_CV.pdf" target="_blank" download>📄 Download My CV</a>
       </section>
     </div>
   </main>
-
   <footer>
     &copy; 2025 Vivekanand Tiwari
   </footer>
 </body>
-
 </html>
