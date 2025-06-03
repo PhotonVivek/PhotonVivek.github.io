@@ -16,10 +16,7 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: 
-        linear-gradient(rgba(15, 28, 63, 0.85), rgba(0, 31, 77, 0.85)),
-        url('Background.png') no-repeat center center fixed;
-      background-size: cover;
+      background: linear-gradient(135deg, #0f1c3f 0%, #001f4d 100%);
       color: #e0e6f1;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -100,7 +97,7 @@
       flex-grow: 1;
     }
 
-    /* Left panel */
+    /* Left panel (Profile photo & animation) */
     .left-panel {
       flex: 1 1 350px;
       background: rgba(255, 255, 255, 0.07);
@@ -137,15 +134,22 @@
       transform: scale(1.05);
       box-shadow: 0 0 30px #a1d6ffdd;
     }
-    .left-panel p {
-      font-size: 1.15rem;
-      font-style: italic;
+
+    /* Spin animation */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spin-qubit {
+      width: 100px;
+      height: 100px;
+      animation: spin 6s linear infinite;
       margin-top: 1rem;
-      max-width: 280px;
-      line-height: 1.4;
+      margin-bottom: 0.3rem;
+      filter: drop-shadow(0 0 4px #56ccf2);
     }
 
-    /* Right panel */
+    /* Right panel (Content sections) */
     .right-panel {
       flex: 2 1 600px;
       background: rgba(255, 255, 255, 0.07);
@@ -238,9 +242,17 @@
   </header>
 
   <main>
-    <div class="left-panel" aria-label="Profile photo and tagline">
+    <div class="left-panel" aria-label="Profile photo and spin qubit animation">
       <img src="Vivek02.jpg" alt="Portrait of Vivekanand Tiwari" />
-      <p>Exploring the quantum world with light, one photon at a time.</p>
+      
+      <!-- Spin Qubit Animation -->
+      <svg class="spin-qubit" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" >
+        <circle cx="32" cy="32" r="30" stroke="#56ccf2" stroke-width="3" fill="none" />
+        <circle cx="32" cy="32" r="10" fill="#a1d6ff" />
+        <line x1="32" y1="2" x2="32" y2="62" stroke="#56ccf2" stroke-width="2" />
+        <line x1="2" y1="32" x2="62" y2="32" stroke="#56ccf2" stroke-width="2" />
+        <circle cx="32" cy="10" r="5" fill="#2a76d2" />
+      </svg>
     </div>
 
     <div class="right-panel">
@@ -250,8 +262,8 @@
           I am a Senior Research Associate at the University of Bristol, United Kingdom.
           My research primarily focuses on
           <strong>Optically active defects in semiconductors</strong> and their
-          applications in a wide range of quantum technologies, particularly
-          <strong>quantum sensing</strong>.
+          applications in a variety of quantum technologies, particularly
+          <strong>Quantum sensing</strong>.
         </p>
       </section>
 
